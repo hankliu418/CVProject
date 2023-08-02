@@ -1,11 +1,27 @@
 cmake_minimum_required(VERSION 3.5.0)
-project(OpenCV VERSION 0.1.0 LANGUAGES C CXX)
+project(demo)
 
-include(CTest)
-enable_testing()
+set(CMAKE_CXX_STANDARD 17)  
+# set(OpenCV_INCLUDE_DIRS "/usr/local/include")
+# set(OpenCV_LIBARIES_DIRS "/usr/local/libs") 
 
-add_executable(OpenCV main.cpp)
+find_package(OpenCV REQUIRED)
 
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+message(STATUS "OpenCV library status")
+message(STATUS "   version: ${OpenCV_VERSION}")
+message(STATUS "   libaries path: ${OpenCV_LIBARIES_DIRS}")
+message(STATUS "   libaries: ${OpenCV_LIBS}")
+message(STATUS "   include path: ${OpenCV_INCLUDE_DIRS}")
+  
+include_directories(${OpenCV_INCLUDE_DIRS})
+
+add_executable(main main.cpp)
+target_link_libraries(main ${OpenCV_LIBS})
+
+# set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+# set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+# include(CPack)
+
+# find_package(OpenCV REQUIRED)  
+  
+# include_directories(${OpenCV_INCLUDE_DIRS})
