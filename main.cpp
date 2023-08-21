@@ -6,6 +6,13 @@ using namespace cv;
 using namespace std;
 
 int main(int, char**) {
-    std::cout << "Hello, World!" << std::endl;
+    cout << "Hello, World!" << endl;
+    Mat img = imread("./resources/jojo.jpeg", -1);
+
+    vector<int>compress_params;
+
+    imwrite("./resources/newjojo.jpg", img);
+
+    cout << img.channels() << endl;
     return 0;
 }

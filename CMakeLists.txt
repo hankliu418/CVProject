@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(demo)
 
-set(CMAKE_CXX_STANDARD 17)  
+set(CMAKE_CXX_STANDARD 17)   
 # set(OpenCV_INCLUDE_DIRS "/usr/local/include") # set header postion yourself, will be overwritten by find_packages
 # set(OpenCV_LIBARIES_DIRS "/usr/local/libs") 
-
+# set(OpenCV_DIR /Users/hank.liu/CProjects/build_opencv_4.8.0) # set opencv local build postion
 find_package(OpenCV REQUIRED) # find OpenCV library as shown in message below
 
 message(STATUS "OpenCV library status")
