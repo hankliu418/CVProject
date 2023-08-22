@@ -11,7 +11,7 @@ int main(int, char**) {
 
     vector<int>compress_params;
 
-    imwrite("./resources/newjojo.jpg", img);
+    imwrite("./output/newjojo1.jpg", img);
 
     cout << img.channels() << endl;
     return 0;

@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.5.0)
-project(demo)
+set(PROJECT_NAME demo)
+project(${PROJECT_NAME})
 
 set(CMAKE_CXX_STANDARD 17)   
 # set(OpenCV_INCLUDE_DIRS "/usr/local/include") # set header postion yourself, will be overwritten by find_packages
@@ -15,5 +16,6 @@ message(STATUS "   include path: ${OpenCV_INCLUDE_DIRS}")
   
 include_directories(${OpenCV_INCLUDE_DIRS}) # Add OpenCV headers location to include paths
 
-add_executable(test main.cpp) # Build main.cpp to build/main
-target_link_libraries(test ${OpenCV_LIBS}) # Link application with OpenCV libraries
+aux_source_directory(src DIR_SRCS) # Find all source files in src directory and store them into DIR_SRCS
+add_executable(${PROJECT_NAME} ${DIR_SRCS}) # Build main.cpp to build/main
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS}) # Link application with OpenCV libraries
